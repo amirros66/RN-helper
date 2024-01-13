@@ -11,15 +11,21 @@ export const bmiSlice = createSlice({
   initialState,
   reducers: {
     updateHeight: (state, action) => {
-      state.height = action.payload;
+      state.height = action.payload === "" ? "" : parseFloat(action.payload);
     },
+
     updateWeight: (state, action) => {
-      state.weight = action.payload;
+      state.weight = action.payload === "" ? "" : parseFloat(action.payload);
     },
     calculateBMI: (state) => {
-      const heightInMeters = state.height / 100;
-      state.bmi = (state.weight / (heightInMeters * heightInMeters)).toFixed(2);
-      // what is this bit doing?
+      if (!isNaN(state.height) && !isNaN(state.weight)) {
+        const heightInMeters = state.height / 100;
+        state.bmi = (state.weight / (heightInMeters * heightInMeters)).toFixed(
+          2
+        );
+      } else {
+        state.bmi = null;
+      }
     },
   },
 });

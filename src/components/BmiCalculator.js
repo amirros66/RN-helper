@@ -10,6 +10,7 @@ import {
   selectWeight,
   selectBMI,
 } from "../store/bmiCalculator/bmiSelector";
+import "./bmi.css";
 
 export default function BmiCalculator() {
   const dispatch = useDispatch();
@@ -17,13 +18,12 @@ export default function BmiCalculator() {
   const weight = useSelector(selectWeight);
   const bmi = useSelector(selectBMI);
 
-  const calculate = () => {
-    const heightInMeters = height / 100;
-    dispatch(calculateBMI(heightInMeters));
+  const handleClick = () => {
+    dispatch(calculateBMI());
   };
 
   return (
-    <div>
+    <div className="bmiContainer">
       <h2>BMI Calculator</h2>
       <div>
         <label>
@@ -45,8 +45,8 @@ export default function BmiCalculator() {
           />
         </label>
       </div>
-      <button onClick={calculate}>Calculate BMI</button>
-      {bmi && <p>Your BMI is: {bmi}</p>}
+      <button onClick={handleClick}>Calculate BMI</button>
+      {bmi !== null && <p>{`Your BMI is: ${bmi}`}</p>}
     </div>
   );
 }

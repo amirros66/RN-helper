@@ -1,3 +1,14 @@
+body {
+  /* background-image: url("https://images.app.goo.gl/Mt9QMPo63QDNGiSn6"); */
+  background-color: #3b2f2f;
+  color: #edc9af;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* footer {
+  background-image: url("https://images.app.goo.gl/Mt9QMPo63QDNGiSn6");
+} */
+
 .App {
   text-align: center;
 }

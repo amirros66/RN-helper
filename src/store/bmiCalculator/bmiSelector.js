@@ -1,3 +1,14 @@
-export const selectHeight = (state) => state.bmi.height;
-export const selectWeight = (state) => state.bmi.weight;
-export const selectBMI = (state) => state.bmi.bmi;
+const selectHeight = (reduxState) => {
+  return reduxState.bmi?.height;
+};
+export { selectHeight };
+
+const selectWeight = (reduxState) => {
+  return reduxState.bmi?.weight;
+};
+export { selectWeight };
+
+const selectBMI = (reduxState) => {
+  return reduxState.bmi;
+};
+export { selectBMI };
