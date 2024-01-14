@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import "../App.css";
 
 export default function ToDoList() {
   return (
-    <div>
-      <h2>To Do List</h2>
+    <div className="container">
+      <h2 className="center">To Do List</h2>
     </div>
   );
 }
-
 //To do list that lets nurse select amount of patients they have, and
 //allows them to have a to do list per patient. (super organised)
 //Or, just a general to do list.

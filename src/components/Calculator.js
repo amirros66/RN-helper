@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import "../App.css";
 
 export default function Calculator() {
   return (
-    <div>
-      <h2>Calculator</h2>
+    <div className="container">
+      <h2 className="center">Calculator</h2>
     </div>
   );
 }
