@@ -1,0 +1,17 @@
+.navContainer {
+  color: 3b2f2f;
+  background-color: edc9af!;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: 4px solid black;
+}
+
+/* .web {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+   */
