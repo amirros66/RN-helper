@@ -32,9 +32,3 @@ export default function Calculator() {
     </div>
   );
 }
-
-// For Numeric and Operator Buttons: The function appends the value of the button
-// to the current input string. This string can represent any mathematical expression,
-// such as "12+3*4". The appending happens in this line of code: setInput(input + value);.
-// At this point, the function doesn't differentiate between addition, subtraction,
-// or any other operation; it simply builds the expression as a string.
