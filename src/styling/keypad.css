@@ -1,0 +1,12 @@
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 columns of equal width */
+  gap: 10px; /* Adjusts the gap between buttons for spacing */
+}
+
+.keypad button {
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 8px;
+}

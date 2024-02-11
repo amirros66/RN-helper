@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Display() {
-  return <input type="text" className="display" />;
+export default function Display({ input }) {
+  return <input type="text" className="display" value={input} readOnly />;
 }
