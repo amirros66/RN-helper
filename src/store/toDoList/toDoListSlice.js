@@ -1,10 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  loading: false,
+  error: null,
+  patients: [],
+  tasks: [],
+};
+
 export const toDoListSlice = createSlice({
-  name: "bmi",
-  initialState: {},
-  reducers: {},
+  name: "toDoList",
+  initialState,
+  reducers: {
+    startLoading: (state) => {
+      state.loading = true;
+    },
+    patientTaskFailed: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    patientSuccess(state, action) {
+      state.loading = false;
+      state.patients.push(action.payload);
+    },
+    taskSuccess(state, action) {
+      state.loading = false;
+      state.tasks.push(action.payload);
+    },
+  },
 });
 
-export const {} = toDoListSlice.actions;
+export const { startLoading, patientTaskFailed, patientSuccess, taskSuccess } =
+  toDoListSlice.actions;
 export default toDoListSlice.reducer;
