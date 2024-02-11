@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./bmi.css";
+import "../styling/bmi.css";
 import "../App.css";
 
 export default function BmiCalculator() {
