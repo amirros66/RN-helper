@@ -20,11 +20,11 @@ export default function BmiCalculator() {
 
       //message
       if (bmi < 18.5) {
-        setMessage("You are underweight");
+        setMessage("This is underweight");
       } else if (bmi >= 18.5 && bmi < 25) {
-        setMessage("You are a healthy weight");
+        setMessage("This is a healthy weight");
       } else {
-        setMessage("You are overweight");
+        setMessage("This is overweight");
       }
     }
   };
@@ -61,7 +61,7 @@ export default function BmiCalculator() {
         </div>
       </form>
       <div className="center">
-        <h3>Your BMI is: {bmi}</h3>
+        <h3>BMI is: {bmi}</h3>
         <p className="bmiMessage">{message}</p>
       </div>
     </div>
