@@ -27,19 +27,21 @@ export const createPatient = (id, name) => {
 };
 
 ////////////////////////////
-//Thunk to get user bookings
 
-// export const getUserBooking = (token) => {
-//   return async function thunk(dispatch) {
-//     try {
-//       dispatch(startLoading());
+export const createTask = (patient_id, title) => {
+  return async function thunk(dispatch, getState) {
+    try {
+      dispatch(startLoading());
 
-//       const response = await axios.get(`${API_URL}/booking/mybookings`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       });
-//       dispatch(bookingsFetchSuccess(response.data));
-//     } catch (error) {
-//       dispatch(bookingFetchFailed(error.message));
-//     }
-//   };
-// };
+      const response = await axios.post(
+        `${API_URL}/patient/${patient_id}/tasks`,
+        { title }
+        // { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      dispatch(taskSuccess(response.data));
+    } catch (error) {
+      dispatch(patientTaskFailed(error.message));
+    }
+  };
+};
