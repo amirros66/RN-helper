@@ -3,6 +3,7 @@ import { createTask } from "../store/toDoList/toDoListThunks";
 // import "../App.css";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import "../styling/addPatientTask.css";
 
 export default function ToDoList() {
   const [patient_id, setPatient_Id] = useState("");
@@ -24,6 +25,7 @@ export default function ToDoList() {
         <label>
           Patient ID or Bed/ Room Number:
           <input
+            className="todo"
             type="number"
             value={patient_id}
             onChange={(e) => setPatient_Id(e.target.value)}
@@ -34,12 +36,14 @@ export default function ToDoList() {
         <label>
           Task:
           <input
+            className="todo"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </label>
+        <br></br>
         <button type="submit">Add Task</button>
       </form>
       <ToastContainer closeButton={false} />
