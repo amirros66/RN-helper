@@ -1,0 +1,15 @@
+.Add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.to-do-container-1,
+.to-do-container-2 {
+  flex: 1;
+}
+
+.to-do-container-3 {
+  width: 100%;
+}

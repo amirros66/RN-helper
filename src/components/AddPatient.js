@@ -2,20 +2,18 @@ import React, { useState } from "react";
 import { createPatient } from "../store/toDoList/toDoListThunks";
 import "../styling/addPatientTask.css";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 
 export default function ToDoList() {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const dispatch = useDispatch();
 
-  const notify = () => toast("Patient created.");
+  // const notify = () => toast("Patient created.");
 
   const handleCreatePatient = (e) => {
     e.preventDefault();
-    dispatch(createPatient(id, name)).then(() => {
-      notify();
-    });
+    dispatch(createPatient(id, name));
   };
 
   return (
@@ -43,9 +41,9 @@ export default function ToDoList() {
           />
         </label>
         <br></br>
-        <button type="submit">Add patient</button>
+        <button type="submit">Submit</button>
       </form>
-      <ToastContainer closeButton={false} />
+      {/* <ToastContainer closeButton={false} /> */}
     </>
   );
 }

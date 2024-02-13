@@ -1,17 +1,52 @@
 .navContainer {
-  color: 3b2f2f;
-  background-color: edc9af!;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  flex-direction: row;
-  border-bottom: 4px solid black;
+  justify-content: space-between; /* Adjusts content to space between */
+  align-items: center; /* Ensures vertical alignment */
+  width: 100%; /* Ensures the navContainer fills the horizontal space */
 }
 
-/* .web {
-    margin-top: 20px;
-    margin-left: 20px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-   */
+.homeLink {
+  padding: 12px 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.rightMenu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hamburgerMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.menuIcon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.menuContent {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.hamburgerMenu:hover .menuContent {
+  display: block;
+}
+
+.menuContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menuContent a:hover {
+  background-color: #ddd;
+}

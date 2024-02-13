@@ -10,13 +10,14 @@ export default function ToDoList() {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
 
-  const notify = () => toast("Task created for this patient.");
+  // const notify = () => toast("Task created for this patient.");
 
   const handleCreateTask = (e) => {
     e.preventDefault();
-    dispatch(createTask(patient_id, title)).then(() => {
-      notify();
-    });
+    dispatch(createTask(patient_id, title));
+    //.then(() => {
+    //   notify();
+    // });
   };
 
   return (
@@ -44,9 +45,9 @@ export default function ToDoList() {
           />
         </label>
         <br></br>
-        <button type="submit">Add Task</button>
+        <button type="submit">Submit</button>
       </form>
-      <ToastContainer closeButton={false} />
+      {/* <ToastContainer closeButton={false} /> */}
     </>
   );
 }
