@@ -10,12 +10,12 @@ export default function BmiCalculator() {
 
   //Calculations
   const calculateBMI = (event) => {
-    //prevent submitting
     event.preventDefault();
     if (weight === 0 || height === 0) {
-      alert("Enter valid weight and height");
+      alert("Please enter valid weight and height");
     } else {
-      let bmi = (weight / (height * height)) * 703;
+      // Update formula for metric system
+      let bmi = weight / (height * height);
       setBmi(bmi.toFixed(1));
 
       //message
@@ -23,8 +23,10 @@ export default function BmiCalculator() {
         setMessage("This is underweight");
       } else if (bmi >= 18.5 && bmi < 25) {
         setMessage("This is a healthy weight");
+      } else if (bmi >= 25 && bmi < 29.9) {
+        setMessage("Overweight");
       } else {
-        setMessage("This is overweight");
+        setMessage("Obese");
       }
     }
   };
@@ -38,14 +40,14 @@ export default function BmiCalculator() {
       <h2 className="center">BMI Calculator</h2>
       <form onSubmit={calculateBMI}>
         <div>
-          <label>Weight in (lbs)</label>
+          <label>Weight (kg)</label>
           <input
             value={weight}
             onChange={(event) => setWeight(event.target.value)}
           />
         </div>
         <div>
-          <label>Height (in)</label>
+          <label>Height (metres)</label>
           <input
             value={height}
             onChange={(event) => setHeight(event.target.value)}
