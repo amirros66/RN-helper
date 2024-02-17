@@ -1,62 +1,56 @@
 import React, { useState } from "react";
-// import { createPatient } from "../store/toDoList/toDoListThunks";
-// import "../App.css";
 import "../styling/toDoList.css";
-// import { useDispatch } from "react-redux";
-// import { ToastContainer, toast } from "react-toastify";
-import AddPatient from "./AddPatient";
-import AddTask from "./AddTask";
 import { useSelector } from "react-redux";
 import {
   selectPatients,
   selectPatientsTasks,
 } from "../store/toDoList/toDoListSelector";
+import AddPatient from "./AddPatient";
+import AddTask from "./AddTask";
 
 export default function ToDoList() {
   const patients = useSelector(selectPatients);
   const tasks = useSelector(selectPatientsTasks);
+  const [selectedPatientId, setSelectedPatientId] = useState(null);
+
+  const handlePatientSelect = (patientId) => {
+    setSelectedPatientId(patientId);
+  };
 
   return (
     <>
-      <div className="Add">
+      <div className="box">
         <div className="to-do-container-1">
-          <h3 className="center">Add patient</h3>
+          <h3>Add Patient</h3>
           <AddPatient />
         </div>
+
         <div className="to-do-container-2">
-          <h3>Add task</h3>
-          <AddTask />
+          <h3>Patients</h3>
+          {patients.map((patient) => (
+            <div key={patient.id}>
+              <p>Name: {patient.name}</p>
+              <p>Patient ID: {patient.id}</p>
+              <button onClick={() => handlePatientSelect(patient.id)}>
+                Add Task
+              </button>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="to-do-container-3">
-        {Array.isArray(patients) && patients.length === 0 ? (
-          <p>No patients.</p>
-        ) : (
-          patients.map((patient, index) => (
+        {/* <h3>Tasks</h3> */}
+        {selectedPatientId && <AddTask patientId={selectedPatientId} />}
+        {tasks
+          .filter((task) => task.patient_id === selectedPatientId)
+          .map((task, index) => (
             <div key={index}>
-              {/* <h2>Patients:</h2> */}
-              <p>Name: {patient.name}</p>
-              <p>Patient ID: {patient.id}</p>
-
-              <div>
-                {/* <h4>Tasks for this patient:</h4> */}
-                {/* Filter tasks for the current patient and map over them */}
-                {tasks.filter((task) => task.patient_id === patient.id)
-                  .length === 0 ? (
-                  <p>No tasks</p>
-                ) : (
-                  tasks
-                    .filter((task) => task.patient_id === patient.id)
-                    .map((task, taskIndex) => (
-                      <p key={taskIndex}>{task.title}</p>
-                    ))
-                )}
-                <br></br>
+              <div className="list-of-tasks">
+                <p>Task Title: {task.title}</p>
               </div>
             </div>
-          ))
-        )}
+          ))}
       </div>
     </>
   );

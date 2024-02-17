@@ -1,49 +1,46 @@
 import React, { useState } from "react";
-import { createPatient } from "../store/toDoList/toDoListThunks";
-import "../styling/addPatientTask.css";
 import { useDispatch } from "react-redux";
-// import { ToastContainer, toast } from "react-toastify";
+import { createPatient } from "../store/toDoList/toDoListThunks";
 
-export default function ToDoList() {
-  const [id, setId] = useState("");
-  const [name, setName] = useState("");
+export default function AddPatient() {
+  const [patientId, setPatientId] = useState("");
+  const [patientName, setPatientName] = useState("");
   const dispatch = useDispatch();
-
-  // const notify = () => toast("Patient created.");
 
   const handleCreatePatient = (e) => {
     e.preventDefault();
-    dispatch(createPatient(id, name));
+    dispatch(createPatient(patientId, patientName));
+    setPatientId("");
+    setPatientName("");
   };
 
   return (
-    <>
-      <form onSubmit={handleCreatePatient}>
-        <label>
-          Patient ID or Bed/ Room Number:
-          <input
-            className="todo"
-            type="number"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            required
-          />
-        </label>
-        <br></br>
-        <label>
-          Patient name:
-          <input
-            className="todo"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <br></br>
-        <button type="submit">Submit</button>
-      </form>
-      {/* <ToastContainer closeButton={false} /> */}
-    </>
+    <form onSubmit={handleCreatePatient}>
+      <label>
+        Patient Number:
+        <br />
+        <input
+          type="number"
+          value={patientId}
+          onChange={(e) => setPatientId(e.target.value)}
+          required
+        />
+      </label>
+      <br />
+      <label>
+        Patient Name:
+        <br />
+        <input
+          type="text"
+          value={patientName}
+          onChange={(e) => setPatientName(e.target.value)}
+          required
+        />
+      </label>
+      <br />
+      <button type="submit" className="btn">
+        Add Patient
+      </button>
+    </form>
   );
 }

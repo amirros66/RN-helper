@@ -14,14 +14,6 @@ body {
   text-align: center;
 }
 
-/* BMI Calculator CSS */
-.container {
-  box-shadow: 0px 0px 12px rgb(234, 219, 219);
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: rgb(117, 96, 96);
-}
-
 input {
   width: 100%;
   font-size: 1.2rem;
@@ -30,7 +22,7 @@ input {
   border-radius: 8px;
 }
 
-.btn {
+/* .btn {
   display: block;
   width: 100%;
   font-size: 1.2rem;
@@ -41,7 +33,7 @@ input {
   border: 1px solid;
   border-radius: 8px;
   cursor: pointer;
-}
+} */
 
 .center {
   text-align: center;
@@ -59,12 +51,12 @@ input {
 
 
 /* Homepage css */
-.resources {
+/* .resources {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   gap: 100px;
-}
+} */
 
 /* .banner {
   background-image: url("images/footer.png");
