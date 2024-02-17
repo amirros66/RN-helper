@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styling/bmi.css";
-import "../App.css";
+// import "../App.css";
 
 export default function BmiCalculator() {
   const [weight, setWeight] = useState(0);
@@ -20,13 +20,13 @@ export default function BmiCalculator() {
 
       //message
       if (bmi < 18.5) {
-        setMessage("This is underweight");
+        setMessage("BMI under 18.5: Underweight");
       } else if (bmi >= 18.5 && bmi < 25) {
-        setMessage("This is a healthy weight");
+        setMessage("BMI between 18.5 - 24.9: Healthy weight");
       } else if (bmi >= 25 && bmi < 29.9) {
-        setMessage("Overweight");
+        setMessage("BMI between 25 - 29.9: Overweight");
       } else {
-        setMessage("Obese");
+        setMessage("BMI above 30: Obese");
       }
     }
   };
@@ -37,33 +37,39 @@ export default function BmiCalculator() {
 
   return (
     <div className="container">
-      <h2 className="center">BMI Calculator</h2>
+      <h2>BMI Calculator</h2>
       <form onSubmit={calculateBMI}>
         <div>
           <label>Weight (kg)</label>
+          <br></br>
           <input
+            className="input"
             value={weight}
             onChange={(event) => setWeight(event.target.value)}
           />
         </div>
         <div>
           <label>Height (metres)</label>
+          <br></br>
           <input
+            className="input"
             value={height}
             onChange={(event) => setHeight(event.target.value)}
           />
         </div>
+        <br></br>
         <div>
           <button className="btn" type="submit">
             Submit
           </button>
+          <br></br>
           <button className="btn btn-outline" onClick={reload} type="submit">
             Reload
           </button>
         </div>
       </form>
       <div className="center">
-        <h3>BMI is: {bmi}</h3>
+        <h3>BMI is {bmi}</h3>
         <p className="bmiMessage">{message}</p>
       </div>
     </div>

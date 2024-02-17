@@ -44,7 +44,7 @@ export default function ToDoList() {
                 {/* Filter tasks for the current patient and map over them */}
                 {tasks.filter((task) => task.patient_id === patient.id)
                   .length === 0 ? (
-                  <p>None</p>
+                  <p>No tasks</p>
                 ) : (
                   tasks
                     .filter((task) => task.patient_id === patient.id)
