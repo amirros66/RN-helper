@@ -5,7 +5,7 @@ import "../styling/navbar.css";
 export default function NavBar() {
   return (
     <div className="navContainer">
-      <NavLink to="/homepage" className="homeLink">
+      <NavLink to="/" className="homeLink">
         Home
       </NavLink>{" "}
       <div className="rightMenu">

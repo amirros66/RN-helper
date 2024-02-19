@@ -18,7 +18,7 @@ function App() {
         {/* <div className="banner"> */}
         <NavBar />
         <Routes>
-          <Route path="/homepage" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/mainpage" element={<MainPage />} /> */}
