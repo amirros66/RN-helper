@@ -12,7 +12,6 @@ export default function Calculator() {
       setInput("");
     } else if (value === "=") {
       try {
-        // Use mathjs to evaluate the expression
         const result = math.evaluate(input);
         setInput(result.toString());
       } catch (error) {
@@ -25,8 +24,8 @@ export default function Calculator() {
 
   return (
     <div className="container">
-      <Display input={input} />
       <br></br>
+      <Display input={input} />
       <br></br>
       <Keypad onClick={handleClick} />
     </div>

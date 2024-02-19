@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTask } from "../store/toDoList/toDoListThunks";
+import "../styling/addTask.css";
 
-export default function AddTask({ patientId }) {
+export default function AddTask({ patientId, onClose }) {
   const [taskTitle, setTaskTitle] = useState("");
   const dispatch = useDispatch();
 
@@ -12,22 +13,26 @@ export default function AddTask({ patientId }) {
     setTaskTitle("");
   };
 
+  const handleHideWindow = () => {
+    onClose();
+  };
+
   return (
-    <form onSubmit={handleCreateTask}>
+    <form onSubmit={handleCreateTask} className="add-task-form">
       <label>
-        Task:
-        <br />
         <input
           type="text"
           value={taskTitle}
           onChange={(e) => setTaskTitle(e.target.value)}
           required
+          className="task-input"
         />
       </label>
       <br />
       <button type="submit" className="btn">
-        Add Task
+        +
       </button>
+      <button onClick={handleHideWindow}>Hide window</button>
     </form>
   );
 }

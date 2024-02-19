@@ -1,4 +1,58 @@
+/* .Add {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+} */
+
+/* .to-do-container-1,
+.to-do-container-2 {
+  flex: 1;
+}
+
+.to-do-container-3 {
+  width: 100%;
+} */
+
+/* .box {
+  display: flex;
+  flex-direction: row;
+}
+
 .Add {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+}
+
+.todo {
+  width: 100px;
+  height: 10px;
+}
+
+.to-do-container-1 {
+  width: 100%; 
+}
+
+.to-do-container-3 {
+  width: 100%;
+  padding-left: 20px; 
+  margin-top: 20px; 
+}
+
+.btn {
+  width: 80px;
+  font-size: 1.2rem;
+  margin: 8px 0;
+  padding: 10px, 0;
+  background-color: 3b2f2f;
+  color: edc9af;
+  border: 1px solid;
+  border-radius: 8px;
+  cursor: pointer;
+} */
+
+.box {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -10,6 +64,10 @@
   flex: 1;
 }
 
-.to-do-container-3 {
-  width: 100%;
+.to-do-container-2 {
+  padding-left: 50px;
+}
+
+.patient-box {
+  border: 1px solid black;
 }
