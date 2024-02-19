@@ -54,9 +54,9 @@
 
 .box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .to-do-container-1,
@@ -65,9 +65,16 @@
 }
 
 .to-do-container-2 {
-  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
 }
 
 .patient-box {
   border: 1px solid black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+  border-radius: 8px;
+  margin-left: 10px;
 }

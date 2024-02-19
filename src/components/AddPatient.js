@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createPatient } from "../store/toDoList/toDoListThunks";
+import "../styling/addPatient.css";
 
 export default function AddPatient() {
   const [patientId, setPatientId] = useState("");
@@ -24,6 +25,7 @@ export default function AddPatient() {
           value={patientId}
           onChange={(e) => setPatientId(e.target.value)}
           required
+          className="text-input"
         />
       </label>
       <br />
@@ -35,6 +37,7 @@ export default function AddPatient() {
           value={patientName}
           onChange={(e) => setPatientName(e.target.value)}
           required
+          className="text-input"
         />
       </label>
       <br />

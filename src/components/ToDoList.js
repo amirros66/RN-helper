@@ -12,11 +12,6 @@ import Popup from "reactjs-popup";
 export default function ToDoList() {
   const patients = useSelector(selectPatients);
   const tasks = useSelector(selectPatientsTasks);
-  const [selectedPatientId, setSelectedPatientId] = useState(null);
-
-  const handlePatientSelect = (patientId) => {
-    setSelectedPatientId(patientId);
-  };
 
   const handleClosePopup = (close) => {
     close();
@@ -29,15 +24,23 @@ export default function ToDoList() {
           <h3>Add Patient</h3>
           <AddPatient />
         </div>
-
+        <h3>Patients</h3>
         <div className="to-do-container-2">
-          <h3>Patients</h3>
           {patients.map((patient) => (
             <div key={patient.id} className="patient-box">
-              <p>Name: {patient.name}</p>
               <p>Patient ID: {patient.id}</p>
+              <p>Name: {patient.name}</p>
+
+              <div className="task-list">
+                <h4>Tasks:</h4>
+                {tasks
+                  .filter((task) => task.patient_id === patient.id)
+                  .map((task) => (
+                    <p key={task.id}>- {task.title}</p>
+                  ))}
+              </div>
               <Popup
-                trigger={<button>Add task</button>}
+                trigger={<button className="btn">Add task</button>}
                 position="center center"
               >
                 {(close) => <AddTask patientId={patient.id} onClose={close} />}

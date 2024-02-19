@@ -32,7 +32,9 @@ export default function AddTask({ patientId, onClose }) {
       <button type="submit" className="btn">
         +
       </button>
-      <button onClick={handleHideWindow}>Hide window</button>
+      <button onClick={handleHideWindow} className="btn">
+        close
+      </button>
     </form>
   );
 }

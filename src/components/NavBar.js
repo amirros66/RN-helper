@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <div className="navContainer">
       <NavLink to="/" className="homeLink">
-        Home
+        RN Helper
       </NavLink>{" "}
       <div className="rightMenu">
         <div className="hamburgerMenu">
