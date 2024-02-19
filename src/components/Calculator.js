@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
+import "../styling/calculator.css";
 import Display from "./Display";
 import Keypad from "./Keypad";
 import * as math from "mathjs";

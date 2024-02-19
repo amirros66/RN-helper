@@ -24,12 +24,14 @@ export default function ToDoList() {
           <h3>Add Patient</h3>
           <AddPatient />
         </div>
-        <h3>Patients</h3>
+        <br></br>
+        <br></br>
         <div className="to-do-container-2">
           {patients.map((patient) => (
             <div key={patient.id} className="patient-box">
-              <p>Patient ID: {patient.id}</p>
-              <p>Name: {patient.name}</p>
+              <h4>
+                Name + ID: {patient.name} / {patient.id}
+              </h4>
 
               <div className="task-list">
                 <h4>Tasks:</h4>

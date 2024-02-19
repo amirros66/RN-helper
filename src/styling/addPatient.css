@@ -1,0 +1,9 @@
+.text-input {
+  width: 80px;
+  font-size: 1.2rem;
+  margin: 8px 0;
+  padding: 10px, 0;
+  border: 1px solid;
+  border-radius: 8px;
+  cursor: pointer;
+}
