@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// Assuming you have an action like this:
 import { toggleTaskCompletion } from "../store/toDoList/toDoListThunks";
 
 const TaskComponent = ({ task }) => {
