@@ -9,6 +9,7 @@ import AddPatient from "./AddPatient";
 import AddTask from "./AddTask";
 import Popup from "reactjs-popup";
 import Task from "./Task";
+import DeleteTasks from "./DeleteTasks";
 
 export default function ToDoList() {
   const patients = useSelector(selectPatients);
@@ -57,6 +58,7 @@ export default function ToDoList() {
               >
                 {(close) => <AddTask patientId={patient.id} onClose={close} />}
               </Popup>
+              <DeleteTasks patientId={patient.id} />
             </div>
           ))}
         </div>

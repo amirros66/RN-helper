@@ -32,6 +32,11 @@ export const toDoListSlice = createSlice({
         state.tasks[index].completed = !state.tasks[index].completed;
       }
     },
+    deleteTasks(state, action) {
+      const patientId = action.payload;
+      state.tasks = state.tasks.filter((task) => task.patient_id !== patientId);
+      state.loading = false;
+    },
   },
 });
 
@@ -41,5 +46,6 @@ export const {
   patientSuccess,
   taskSuccess,
   toggleTaskCompleted,
+  deleteTasks,
 } = toDoListSlice.actions;
 export default toDoListSlice.reducer;

@@ -5,6 +5,7 @@ import {
   patientSuccess,
   taskSuccess,
   toggleTaskCompleted,
+  deleteTasks,
 } from "./toDoListSlice";
 
 const API_URL = "http://127.0.0.1:8000";
@@ -57,6 +58,25 @@ export const toggleTaskCompletion = (taskId) => {
         dispatch(toggleTaskCompleted(taskId));
       } else {
         throw new Error("Failed to toggle task completion");
+      }
+    } catch (error) {
+      dispatch(patientTaskFailed(error.toString()));
+    }
+  };
+};
+
+///////////////
+export const deletePatientTasks = (patientId) => {
+  return async function thunk(dispatch, getState) {
+    try {
+      dispatch(startLoading());
+      const response = await axios.delete(
+        `${API_URL}/patient/${patientId}/tasks/all`
+      );
+      if (response.status === 200) {
+        dispatch(deleteTasks(patientId));
+      } else {
+        throw new Error("Failed to delete tasks");
       }
     } catch (error) {
       dispatch(patientTaskFailed(error.toString()));
