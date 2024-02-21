@@ -26,9 +26,20 @@ export const toDoListSlice = createSlice({
       state.loading = false;
       state.tasks.push(action.payload);
     },
+    toggleTaskCompleted: (state, action) => {
+      const index = state.tasks.findIndex((task) => task.id === action.payload);
+      if (index !== -1) {
+        state.tasks[index].completed = !state.tasks[index].completed;
+      }
+    },
   },
 });
 
-export const { startLoading, patientTaskFailed, patientSuccess, taskSuccess } =
-  toDoListSlice.actions;
+export const {
+  startLoading,
+  patientTaskFailed,
+  patientSuccess,
+  taskSuccess,
+  toggleTaskCompleted,
+} = toDoListSlice.actions;
 export default toDoListSlice.reducer;

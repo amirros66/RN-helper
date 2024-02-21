@@ -8,6 +8,7 @@ import {
 import AddPatient from "./AddPatient";
 import AddTask from "./AddTask";
 import Popup from "reactjs-popup";
+import Task from "./Task";
 
 export default function ToDoList() {
   const patients = useSelector(selectPatients);
@@ -33,14 +34,23 @@ export default function ToDoList() {
                 Name + ID: {patient.name} / {patient.id}
               </h4>
 
-              <div className="task-list">
+              {/* <div className="task-list">
                 <h4>Tasks:</h4>
                 {tasks
                   .filter((task) => task.patient_id === patient.id)
                   .map((task) => (
                     <p key={task.id}>- {task.title}</p>
                   ))}
+              </div> */}
+              <div className="task-list">
+                <h4>Tasks:</h4>
+                {tasks
+                  .filter((task) => task.patient_id === patient.id)
+                  .map((task) => (
+                    <Task key={task.id} task={task} />
+                  ))}
               </div>
+
               <Popup
                 trigger={<button className="btn">Add task</button>}
                 position="center center"

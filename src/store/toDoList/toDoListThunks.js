@@ -4,6 +4,7 @@ import {
   patientTaskFailed,
   patientSuccess,
   taskSuccess,
+  toggleTaskCompleted,
 } from "./toDoListSlice";
 
 const API_URL = "http://127.0.0.1:8000";
@@ -42,6 +43,23 @@ export const createTask = (patient_id, title) => {
       dispatch(taskSuccess(response.data));
     } catch (error) {
       dispatch(patientTaskFailed(error.message));
+    }
+  };
+};
+
+/////////////////////////
+export const toggleTaskCompletion = (taskId) => {
+  return async function thunk(dispatch, getState) {
+    try {
+      dispatch(startLoading());
+      const response = await axios.patch(`${API_URL}/tasks/${taskId}/toggle`);
+      if (response.status === 200) {
+        dispatch(toggleTaskCompleted(taskId));
+      } else {
+        throw new Error("Failed to toggle task completion");
+      }
+    } catch (error) {
+      dispatch(patientTaskFailed(error.toString()));
     }
   };
 };
