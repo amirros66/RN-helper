@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import CalculatorPage from "./pages/CalculatorPage";
 import BMIpage from "./pages/BMIpage";
 import TodoPage from "./pages/ToDoPage";
+import AppFooter from "./components/AppFooter";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/BMI" element={<BMIpage />} />
           <Route path="/to-do" element={<TodoPage />} />
         </Routes>
-        {/* </div> */}
+        <AppFooter />
       </div>
     </>
   );
